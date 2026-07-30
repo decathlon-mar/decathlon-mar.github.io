@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><script src="https://happyseeds.ai/app/__happyseeds__/preview-runtime.js"></script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+<title>DECATHLON Maroc | Sport, Loisirs & Bien-être</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230055A4'/%3E%3Cellipse cx='28' cy='32' rx='13' ry='21' fill='white' transform='rotate(-18 28 32)'/%3E%3Cellipse cx='28' cy='32' rx='6.5' ry='13' fill='%230055A4' transform='rotate(-18 28 32)'/%3E%3C/svg%3E"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#f5f5f5;color:#1a1a1a;font-size:14px}
+button{cursor:pointer;font-family:inherit}
+/* BANNER */
+.banner{background:#0055a4;color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px}
+.banner b{font-weight:800}
+/* HEADER */
+.hdr{background:#fff;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:200;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.h-l{display:flex;align-items:center;gap:13px}
+.hmb{display:flex;flex-direction:column;gap:4.5px;padding:4px;cursor:pointer}
+.hmb span{display:block;width:21px;height:2px;background:#1a1a1a;border-radius:2px}
+.h-r{display:flex;align-items:center;gap:14px}
+.hbtn{background:none;border:none;padding:4px;display:flex;align-items:center;cursor:pointer}
+/* SEARCH */
+.srch{background:#fff;padding:8px 16px 10px;border-bottom:1px solid #eee}
+.srch-inner{background:#f2f2f2;border-radius:8px;display:flex;align-items:center;gap:8px;padding:9px 14px}
+.srch-inner input{border:none;background:transparent;font-size:15px;color:#999;outline:none;width:100%;font-family:inherit}
+/* HERO */
+.hero{background:linear-gradient(155deg,#6a0505 0%,#9b1c1c 35%,#c0392b 65%,#e74c3c 100%);padding:30px 20px 26px;text-align:center;position:relative;overflow:hidden}
+.hero-eye{color:rgba(255,255,255,.72);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.hero-s{font-size:66px;font-weight:900;color:#f5e6c8;text-transform:uppercase;letter-spacing:-2px;line-height:.95;text-shadow:2px 4px 0 rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center}
+.hero-s .fi{display:inline-block;animation:fw .75s infinite alternate ease-in-out}
+@keyframes fw{from{transform:scaleY(1) rotate(-3deg)}to{transform:scaleY(1.1) rotate(3deg)}}
+.hero-p{font-size:84px;font-weight:900;color:#f5e6c8;letter-spacing:-4px;line-height:1;text-shadow:3px 5px 0 rgba(0,0,0,.28)}
+.hero-n{color:rgba(255,255,255,.85);font-size:12px;margin-top:10px;line-height:1.6}
+.hero-btns{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:18px}
+.hbtn2{background:#fff;border:none;border-radius:50px;padding:9px 18px;font-size:12.5px;font-weight:700;color:#1a1a1a;box-shadow:0 2px 6px rgba(0,0,0,.15);transition:transform .15s;cursor:pointer}
+.hbtn2:active{transform:scale(.96)}
+/* TABS */
+.tabs{background:#fff;display:flex;overflow-x:auto;border-bottom:2px solid #f0f0f0;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:11px 15px;font-size:13px;font-weight:600;white-space:nowrap;border-bottom:2.5px solid transparent;margin-bottom:-2px;cursor:pointer;color:#555}
+.tab.on{color:#0055a4;border-bottom-color:#0055a4}
+/* GAME */
+.game{background:linear-gradient(180deg,#fffbf4 0%,#fff 100%);padding:26px 16px 20px;text-align:center}
+.gbadge{display:inline-block;background:#e30613;color:#fff;font-size:9.5px;font-weight:800;letter-spacing:1px;padding:4px 12px;border-radius:30px;margin-bottom:10px;text-transform:uppercase}
+.gtitle{font-size:23px;font-weight:900;color:#0055a4;margin-bottom:4px}
+.gsub{font-size:13px;color:#888;margin-bottom:18px}
+/* PRIZE PREVIEW */
+.prize-box{display:flex;align-items:center;justify-content:center;gap:12px;background:#fff7ed;border:1.5px dashed #f5a623;border-radius:14px;padding:13px 15px;max-width:308px;margin:0 auto 20px}
+.prize-box img{width:68px;height:68px;object-fit:cover;border-radius:10px}
+.p-inf .p-lbl{font-size:10px;font-weight:700;color:#f5a623;text-transform:uppercase;letter-spacing:.5px}
+.p-inf .p-nm{font-size:15px;font-weight:900;color:#1a1a1a}
+.p-inf .p-sb{font-size:11px;color:#999;margin-top:2px}
+/* WHEEL */
+.ww{position:relative;width:308px;height:308px;margin:0 auto 8px}
+.ptr{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:17px solid transparent;border-right:17px solid transparent;border-top:36px solid #e30613;z-index:10;filter:drop-shadow(0 2px 5px rgba(0,0,0,.35))}
+#wc{display:block;border-radius:50%;box-shadow:0 0 0 6px #fff,0 0 0 11px #0055a4,0 10px 36px rgba(0,0,0,.2)}
+.sbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;background:linear-gradient(145deg,#0055a4,#1976d2);border:5px solid #fff;color:#fff;font-size:10px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;box-shadow:0 4px 14px rgba(0,85,164,.45);transition:transform .15s;z-index:10;line-height:1.25}
+.sbtn:hover:not(:disabled){transform:translate(-50%,-50%) scale(1.07)}
+.sbtn:disabled{opacity:.6;cursor:not-allowed}
+.whint{font-size:11.5px;color:#bbb;margin-top:8px}
+/* SECTION */
+.sec{background:#fff;padding:18px 16px;margin-top:8px}
+.shead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.stitle{font-size:17px;font-weight:800}
+.smore{font-size:13px;color:#0055a4;font-weight:600}
+.prow{display:flex;gap:11px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.prow::-webkit-scrollbar{display:none}
+.pc{flex:0 0 155px;border:1px solid #efefef;border-radius:10px;overflow:hidden;background:#fff;cursor:pointer;position:relative}
+.pbg{position:absolute;top:7px;left:7px;font-size:9.5px;font-weight:800;padding:3px 7px;border-radius:4px;text-transform:uppercase}
+.bs{background:#e30613;color:#fff}.bp{background:#f5a623;color:#fff}
+.pimg{width:100%;height:128px;background:#f7f7f7;display:flex;align-items:center;justify-content:center;font-size:46px}
+.pinf{padding:9px 10px}
+.pbr{font-size:10px;font-weight:800;text-transform:uppercase}
+.pnm{font-size:11.5px;color:#555;margin:2px 0 5px;line-height:1.3}
+.pst{color:#f5a623;font-size:11px}.pcnt{color:#aaa;font-size:10px}
+.ppr{display:flex;align-items:center;gap:6px;margin-top:6px}
+.pold{font-size:11px;color:#bbb;text-decoration:line-through}
+.pp{background:#f5a623;color:#fff;font-size:11.5px;font-weight:800;padding:3px 8px;border-radius:4px}
+/* CATS */
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cat{border-radius:10px;height:95px;position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:flex-end}
+.cat-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:38px}
+.cat-lbl{position:relative;z-index:1;background:rgba(0,0,0,.42);color:#fff;font-size:12.5px;font-weight:700;padding:7px 11px;width:100%}
+/* SUMMER */
+.sum{background:linear-gradient(135deg,#00b4d8,#0077b6);margin:8px 16px;border-radius:14px;padding:18px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sum h3{font-size:17px;font-weight:900;color:#fff}
+.sum p{font-size:11.5px;color:rgba(255,255,255,.85);margin-top:3px}
+.sum-btn{background:#fff;color:#0077b6;border:none;border-radius:30px;padding:10px 16px;font-size:13px;font-weight:800;flex-shrink:0;cursor:pointer}
+/* COMMENTS */
+.coms{background:#fff;padding:18px 16px;margin-top:8px}
+.ctit{font-size:16px;font-weight:900;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.cc{border:1px solid #f0f0f0;border-radius:12px;padding:13px;margin-bottom:12px;background:#fafbff;border-left:3.5px solid #0055a4}
+.ch{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.cav{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#fff;flex-shrink:0}
+.cnm{font-size:13.5px;font-weight:800}
+.ctm{font-size:11px;color:#aaa}
+.ctx{font-size:13.5px;color:#444;line-height:1.55;direction:rtl;text-align:right}
+.cst{color:#f5a623;font-size:12.5px;margin-top:5px}
+.ctag{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,#f5a623,#e30613);color:#fff;border-radius:20px;padding:4px 12px;font-size:11.5px;font-weight:700;margin-top:7px}
+/* FOOTER */
+.fnav{background:#fff;margin-top:8px;border-top:6px solid #f0f0f0}
+.fi2{display:flex;justify-content:space-between;align-items:center;padding:15px 16px;border-bottom:1px solid #f5f5f5;font-size:15px;font-weight:600;cursor:pointer}
+.fi2:last-child{border-bottom:none}
+.fch{color:#bbb;font-size:17px}
+.fbtm{background:#0055a4;color:rgba(255,255,255,.65);font-size:11px;text-align:center;padding:14px 16px;margin-top:8px}
+/* FEEDBACK TAB */
+.fdbk{position:fixed;right:-30px;top:50%;transform:translateY(-50%) rotate(90deg);background:#0055a4;color:#fff;font-size:12px;font-weight:700;padding:7px 15px;border-radius:4px 4px 0 0;z-index:100;letter-spacing:.5px;cursor:pointer}
+/* MODAL */
+.mbg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:300;align-items:center;justify-content:center;padding:20px}
+.mbg.open{display:flex}
+.mbox{background:#fff;border-radius:20px;padding:34px 22px 26px;max-width:335px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.3);animation:pop .4s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes pop{from{transform:scale(.55);opacity:0}to{transform:scale(1);opacity:1}}
+.mico{font-size:62px;margin-bottom:12px}
+.mtit{font-size:21px;font-weight:900;margin-bottom:8px}
+.mbod{font-size:14px;color:#666;line-height:1.6;margin-bottom:22px}
+.mshare{background:linear-gradient(135deg,#0055a4,#1976d2);color:#fff;border:none;border-radius:50px;padding:14px 26px;font-size:15px;font-weight:800;width:100%;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 16px rgba(0,85,164,.35);transition:transform .15s;cursor:pointer}
+.mshare:hover{transform:scale(1.03)}
+.mcls{background:#f0f0f0;color:#555;border:none;border-radius:50px;padding:12px 26px;font-size:14px;font-weight:700;width:100%;cursor:pointer}
+.mcls:hover{background:#e5e5e5}
+.m-ip{width:110px;height:110px;object-fit:cover;border-radius:12px;margin:0 auto 14px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+/* TOAST */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1a1a;color:#fff;padding:11px 22px;border-radius:30px;font-size:13.5px;font-weight:700;z-index:400;white-space:nowrap;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+/* CONFETTI */
+.cfw{position:fixed;inset:0;pointer-events:none;z-index:350;overflow:hidden}
+.cp{position:absolute;top:-12px;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(900deg);opacity:0}}
+@media(max-width:360px){.hero-s{font-size:50px}.hero-p{font-size:66px}.ww{width:268px;height:268px}#wc{width:268px!important;height:268px!important}}
+</style>
+</head>
+<body>
+
+<div class="fdbk">Feedback</div>
+
+<!-- BANNER -->
+<div class="banner">
+  <span>🚚</span>
+  <span>Profitez de la <b>LIVRAISON FABOOR</b> sur une sélection d'articles</span>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="h-l">
+    <div class="hmb" onclick="void(0)"><span></span><span></span><span></span></div>
+    <!-- EXACT Decathlon SVG logo -->
+    <svg width="150" height="34" viewBox="0 0 370 82" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="37" cy="41" rx="34" ry="40" fill="#0055A4"/>
+      <ellipse cx="33" cy="41" rx="15" ry="26.5" fill="white" transform="rotate(-17 33 41)"/>
+      <ellipse cx="33" cy="41" rx="7.5" ry="16" fill="#0055A4" transform="rotate(-17 33 41)"/>
+      <text x="83" y="60" font-family="Arial Black,Arial,sans-serif" font-size="52" font-weight="900" fill="#0055A4" letter-spacing="-1">DECATHLON</text>
+    </svg>
+  </div>
+  <div class="h-r">
+    <button class="hbtn" onclick="void(0)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+    </button>
+    <button class="hbtn" onclick="void(0)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    </button>
+    <button class="hbtn" onclick="void(0)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- SEARCH -->
+<div class="srch">
+  <div class="srch-inner">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+    <input type="text" placeholder="Rechercher" readonly/>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eye">⚡ OFFRE EXCLUSIVE – TEMPS LIMITÉ</div>
+  <div class="hero-s"><span class="fi">🔥</span>SOLD<span class="fi">🔥</span>ES</div>
+  <div class="hero-p">-60%</div>
+  <div class="hero-n"><b>Stocks limités!</b> Sous réserve des stocks disponibles<br>*Du 10 juillet au 16 août</div>
+  <div class="hero-btns">
+    <button class="hbtn2">Toute l'offre</button>
+    <button class="hbtn2">-30% et plus !</button>
+    <button class="hbtn2">-50% et plus !</button>
+    <button class="hbtn2">-60% et plus !</button>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab on">Soldes</div>
+  <div class="tab">Soldes chaussures</div>
+  <div class="tab">Nouveautés</div>
+  <div class="tab">Running</div>
+  <div class="tab">Natation</div>
+  <div class="tab">Fitness</div>
+  <div class="tab">Vélo</div>
+</div>
+
+<!-- ══ GAME SECTION ══ -->
+<div class="game">
+  <div class="gbadge">🎁 OFFRE EXCLUSIVE DECATHLON</div>
+  <div class="gtitle">🎰 TOURNEZ &amp; GAGNEZ !</div>
+  <div class="gsub">1 tour gratuit vous attend — tentez votre chance !</div>
+
+  <div class="prize-box">
+    <img id="prizeImg" alt="iPhone 17 Pro"/>
+    <div class="p-inf">
+      <div class="p-lbl">🏆 Grand Prix</div>
+      <div class="p-nm">iPhone 17 Pro</div>
+      <div class="p-sb">+ Cash jusqu'à 1000 DH</div>
+    </div>
+  </div>
+
+  <div class="ww">
+    <div class="ptr"></div>
+    <canvas id="wc" width="308" height="308"></canvas>
+    <button class="sbtn" id="spinBtn" onclick="startSpin()">JOUER</button>
+  </div>
+  <p class="whint">⬆️ Appuyez sur le bouton central pour tourner</p>
+</div>
+
+<!-- SUMMER BANNER -->
+<div class="sum">
+  <div><h3>🌊 L'été à la plage</h3><p>Sélection Anti-UV à partir de 69dhs</p></div>
+  <button class="sum-btn">Je fonce</button>
+</div>
+
+<!-- PRODUCTS HOMME -->
+<div class="sec">
+  <div class="shead"><span class="stitle">🔥 Soldes Homme</span><span class="smore">Voir tout ›</span></div>
+  <div class="prow">
+    <div class="pc"><span class="pbg bs">Soldes</span><div class="pimg">🏃</div>
+      <div class="pinf"><div class="pbr">OLAIAN</div><div class="pnm">Tee shirt anti UV surf top 100...</div>
+      <div class="pst">★★★★<span style="color:#ddd">★</span> <span class="pcnt">(1708)</span></div>
+      <div class="ppr"><span class="pold">189 MAD</span><span class="pp">119 MAD</span></div></div></div>
+    <div class="pc"><span class="pbg bp">Baisse prix</span><div class="pimg">🩱</div>
+      <div class="pinf"><div class="pbr">DECATHLON</div><div class="pnm">Short de bain surf 100 Homme...</div>
+      <div class="pst">★★★★<span style="color:#ddd">★</span> <span class="pcnt">(1739)</span></div>
+      <div class="ppr"><span class="pold">99 MAD</span><span class="pp">49 MAD</span></div></div></div>
+    <div class="pc"><span class="pbg bs">-50%</span><div class="pimg">🚴</div>
+      <div class="pinf"><div class="pbr">ROCKRIDER</div><div class="pnm">Vélo VTT Électrique E-ST 500...</div>
+      <div class="pst">★★★★★ <span class="pcnt">(342)</span></div>
+      <div class="ppr"><span class="pold">19000 MAD</span><span class="pp">9999 MAD</span></div></div></div>
+    <div class="pc"><span class="pbg bp">Baisse prix</span><div class="pimg">👟</div>
+      <div class="pinf"><div class="pbr">KALENJI</div><div class="pnm">Chaussures Running confort homme...</div>
+      <div class="pst">★★★★<span style="color:#ddd">★</span> <span class="pcnt">(893)</span></div>
+      <div class="ppr"><span class="pold">299 MAD</span><span class="pp">179 MAD</span></div></div></div>
+  </div>
+</div>
+
+<!-- SPORTS CATS -->
+<div class="sec">
+  <div class="shead"><span class="stitle">soldes par sport</span></div>
+  <div class="cats">
+    <div class="cat" style="background:#dff3fb"><div class="cat-bg">🏊</div><div class="cat-lbl">Natation</div></div>
+    <div class="cat" style="background:#fef3e8"><div class="cat-bg">🏃</div><div class="cat-lbl">Running &amp; Marche</div></div>
+    <div class="cat" style="background:#edf7ed"><div class="cat-bg">🧘</div><div class="cat-lbl">Fitness</div></div>
+    <div class="cat" style="background:#f3eefe"><div class="cat-bg">🚴</div><div class="cat-lbl">Cyclisme</div></div>
+  </div>
+</div>
+
+<!-- PRODUCTS FEMME -->
+<div class="sec">
+  <div class="shead"><span class="stitle">☀️ Soldes Femme</span><span class="smore">Voir tout ›</span></div>
+  <div class="prow">
+    <div class="pc"><span class="pbg bp">Baisse prix</span><div class="pimg">👙</div>
+      <div class="pinf"><div class="pbr">NABAIJI</div><div class="pnm">Maillot de bain 1 pièce Femme...</div>
+      <div class="pst">★★★★<span style="color:#ddd">★</span> <span class="pcnt">(512)</span></div>
+      <div class="ppr"><span class="pold">129 MAD</span><span class="pp">79 MAD</span></div></div></div>
+    <div class="pc"><span class="pbg bs">Soldes</span><div class="pimg">🧢</div>
+      <div class="pinf"><div class="pbr">QUECHUA</div><div class="pnm">Casquettes à partir de 59dhs...</div>
+      <div class="pst">★★★★<span style="color:#ddd">★</span> <span class="pcnt">(278)</span></div>
+      <div class="ppr"><span class="pold">99 MAD</span><span class="pp">59 MAD</span></div></div></div>
+    <div class="pc"><span class="pbg bp">Baisse prix</span><div class="pimg">🕶️</div>
+      <div class="pinf"><div class="pbr">TRIBORD</div><div class="pnm">Lunettes de soleil à partir de...</div>
+      <div class="pst">★★★★★ <span class="pcnt">(163)</span></div>
+      <div class="ppr"><span class="pold">119 MAD</span><span class="pp">79 MAD</span></div></div></div>
+  </div>
+</div>
+
+<!-- COMMENTS -->
+<div class="coms">
+  <div class="ctit">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Commentaires des gagnants
+  </div>
+  <div class="cc">
+    <div class="ch"><div class="cav" style="background:linear-gradient(135deg,#e30613,#b71c1c)">ف</div>
+    <div><div class="cnm">Fatima Zahra – Casablanca</div><div class="ctm">Il y a 2 heures &nbsp;✔️ Vérifié</div></div></div>
+    <div class="ctx">واللاه ما صدقتش! دارت دورة وخرجلي iPhone 17 Pro 😱 شكراً Decathlon المغرب على هاد الفرصة النادرة 🙏</div>
+    <div class="cst">★★★★★</div><span class="ctag">🏆 iPhone 17 Pro</span>
+  </div>
+  <div class="cc">
+    <div class="ch"><div class="cav" style="background:linear-gradient(135deg,#1b5e20,#2e7d32)">م</div>
+    <div><div class="cnm">Mohamed Amine – Rabat</div><div class="ctm">Il y a 5 heures &nbsp;✔️ Vérifié</div></div></div>
+    <div class="ctx">ربحت 500 درهم! الله يبارك. شاركت الرابط مع خويا وربح هو الآخر 🙏 دورو فالفرصة هادي بناسكم!</div>
+    <div class="cst">★★★★★</div><span class="ctag">💰 500 DH</span>
+  </div>
+  <div class="cc">
+    <div class="ch"><div class="cav" style="background:linear-gradient(135deg,#4a148c,#7b1fa2)">س</div>
+    <div><div class="cnm">Sara – Marrakech</div><div class="ctm">Il y a 1 jour &nbsp;✔️ Vérifié</div></div></div>
+    <div class="ctx">سبحان الله! بنتي شاركات الرابط ودارت الدوارة وخرجلها iPhone 17 Pro!! ما كنا نصدقو حتى جاتنا رسالة التأكيد 🎉</div>
+    <div class="cst">★★★★★</div><span class="ctag">🏆 iPhone 17 Pro</span>
+  </div>
+  <div class="cc">
+    <div class="ch"><div class="cav" style="background:linear-gradient(135deg,#e65100,#f57c00)">ي</div>
+    <div><div class="cnm">Youssef – Fès</div><div class="ctm">Il y a 2 jours &nbsp;✔️ Vérifié</div></div></div>
+    <div class="ctx">ربحت 1000 درهم بحال البساطة! الله يجازيكم بالخير 😍 شاركو الرابط مع صحابكم، كل واحد عندو فرصة!</div>
+    <div class="cst">★★★★☆</div><span class="ctag">💰 1000 DH</span>
+  </div>
+  <div class="cc">
+    <div class="ch"><div class="cav" style="background:linear-gradient(135deg,#006064,#00838f)">ن</div>
+    <div><div class="cnm">Nadia – Agadir</div><div class="ctm">Il y a 3 jours &nbsp;✔️ Vérifié</div></div></div>
+    <div class="ctx">كنت مصدقاش بصح دارت الدوارة وخرجلي الجائزة الكبرى 😍 شكراً Decathlon! شاركو مع صحابكم دابا!</div>
+    <div class="cst">★★★★★</div><span class="ctag">🏆 iPhone 17 Pro</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="fnav">
+  <div class="fi2"><span>Nos sports</span><span class="fch">›</span></div>
+  <div class="fi2"><span>Femmes</span><span class="fch">›</span></div>
+  <div class="fi2"><span>Hommes</span><span class="fch">›</span></div>
+  <div class="fi2"><span>Enfants</span><span class="fch">›</span></div>
+  <div class="fi2"><span>Accessoires</span><span class="fch">›</span></div>
+  <div class="fi2"><span><b>SOLDES</b></span><span></span></div>
+  <div class="fi2"><span>Livraison gratuite</span><span></span></div>
+  <div class="fi2"><span>Services</span><span class="fch">›</span></div>
+  <div class="fi2"><span>👤 Mon compte</span><span class="fch">›</span></div>
+  <div class="fi2"><span>🏬 Magasins</span><span class="fch">›</span></div>
+  <div class="fi2"><span>❓ Aide</span><span class="fch">›</span></div>
+</div>
+<div class="fbtm">© 2025 DECATHLON Maroc — Jeu sans obligation d'achat</div>
+
+<!-- MODAL -->
+<div class="mbg" id="mbg">
+  <div class="mbox">
+    <div class="mico" id="mico"></div>
+    <div class="mtit" id="mtit"></div>
+    <div class="mbod" id="mbod"></div>
+    <button class="mshare" onclick="doShare()"><span>📤</span> Partager &amp; Rejouer</button>
+    <button class="mcls" onclick="closeM()">Fermer</button>
+  </div>
+</div>
+<div class="cfw" id="cfw"></div>
+<div class="toast" id="toast">🔗 Lien copié ! Partagez avec vos amis 🎉</div>
+
+<script>
+const IB64="data:image/jpeg;base64,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";
+document.getElementById("prizeImg").src=IB64;
+
+const SEG=[
+  {l:"iPhone 17 Pro",c:"#1a1a2e",t:"#fff",i:"📱"},
+  {l:"Rien",c:"#c0392b",t:"#fff",i:"😢"},
+  {l:"500 DH",c:"#0055a4",t:"#fff",i:"💰"},
+  {l:"Rien",c:"#7f1f1f",t:"#fff",i:"😢"},
+  {l:"iPhone 17 Pro",c:"#16213e",t:"#fff",i:"📱"},
+  {l:"Rien",c:"#b03028",t:"#fff",i:"😢"},
+  {l:"1000 DH",c:"#0b4f8a",t:"#fff",i:"💰"},
+  {l:"Rien",c:"#c0392b",t:"#fff",i:"😢"}
+];
+const RI=SEG.map((s,i)=>s.l==="Rien"?i:-1).filter(i=>i>=0);
+const N=SEG.length,ARC=2*Math.PI/N;
+const cv=document.getElementById("wc"),cx=cv.getContext("2d"),W=cv.width;
+let angle=0,spinning=false;
+
+function draw(a){
+  cx.clearRect(0,0,W,W);
+  const x=W/2,y=W/2,r=x-4;
+  for(let i=0;i<N;i++){
+    const s=a+i*ARC,e=s+ARC;
+    cx.beginPath();cx.moveTo(x,y);cx.arc(x,y,r,s,e);cx.closePath();
+    cx.fillStyle=SEG[i].c;cx.fill();
+    cx.strokeStyle="#fff";cx.lineWidth=2.5;cx.stroke();
+    cx.save();cx.translate(x,y);cx.rotate(s+ARC/2);
+    cx.textAlign="right";cx.fillStyle=SEG[i].t;
+    cx.font="bold 12.5px \'Helvetica Neue\',Arial,sans-serif";
+    cx.fillText(SEG[i].i+" "+SEG[i].l,r-10,5);
+    cx.restore();
+  }
+  cx.beginPath();cx.arc(x,y,28,0,2*Math.PI);
+  cx.fillStyle="#0055a4";cx.fill();
+  cx.strokeStyle="#fff";cx.lineWidth=5;cx.stroke();
+}
+draw(angle);
+
+function startSpin(){
+  if(spinning)return;spinning=true;
+  const btn=document.getElementById("spinBtn");
+  btn.disabled=true;btn.textContent="...";
+  const t=RI[Math.floor(Math.random()*RI.length)];
+  const mid=t*ARC+ARC/2;
+  const sp=(6+Math.floor(Math.random()*4))*2*Math.PI;
+  let d=(-Math.PI/2-mid-angle)%(2*Math.PI);
+  if(d<0)d+=2*Math.PI;d+=sp;
+  const dur=5500+Math.random()*1500,t0=performance.now(),a0=angle;
+  function ease(p){return 1-Math.pow(1-p,4)}
+  function fr(now){
+    const p=Math.min((now-t0)/dur,1);
+    angle=a0+d*ease(p);draw(angle);
+    if(p<1)requestAnimationFrame(fr);
+    else{spinning=false;showRes(SEG[t]);}
+  }
+  requestAnimationFrame(fr);
+}
+
+function showRes(seg){
+  const ico=document.getElementById("mico");
+  if(seg.l==="Rien"){
+    ico.textContent="😢";
+    document.getElementById("mtit").textContent="Rien cette fois…";
+    document.getElementById("mbod").innerHTML="Malheureusement vous n'avez rien gagné.<br><br>Partagez ce lien avec vos amis pour leur donner une chance et <b>retentez votre chance&nbsp;!</b>";
+  } else {
+    ico.innerHTML='<img class="m-ip" src="'+IB64+'" alt="iPhone 17 Pro"/>';
+    document.getElementById("mtit").textContent="Félicitations ! 🎉";
+    document.getElementById("mbod").innerHTML="Vous avez gagné&nbsp;: <b>"+seg.l+"</b>&nbsp;!<br>Partagez et invitez vos amis pour valider votre gain&nbsp;!";
+    boom();
+  }
+  document.getElementById("mbg").classList.add("open");
+}
+function closeM(){
+  document.getElementById("mbg").classList.remove("open");
+  const btn=document.getElementById("spinBtn");
+  btn.disabled=false;btn.textContent="JOUER";
+}
+function doShare(){
+  const u=window.location.href;
+  const tx="🎰 Decathlon Maroc – Tentez de gagner un iPhone 17 Pro ou du cash ! Un tour GRATUIT ! 🎁";
+  if(navigator.share)navigator.share({title:"DECATHLON – Tournez & Gagnez!",text:tx,url:u}).catch(()=>cp(u));
+  else cp(u);
+}
+function cp(t){
+  if(navigator.clipboard)navigator.clipboard.writeText(t).then(showT);
+  else{const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();document.execCommand("copy");document.body.removeChild(a);showT();}
+}
+function showT(){
+  const el=document.getElementById("toast");el.classList.add("show");
+  setTimeout(()=>el.classList.remove("show"),3200);
+}
+function boom(){
+  const w=document.getElementById("cfw");
+  const cols=["#0055a4","#e30613","#f5a623","#27ae60","#9b59b6","#fff","#f5e6c8"];
+  for(let i=0;i<140;i++){
+    const p=document.createElement("div");p.className="cp";
+    p.style.left=Math.random()*100+"vw";
+    p.style.background=cols[Math.floor(Math.random()*cols.length)];
+    const sz=8+Math.random()*9;p.style.width=p.style.height=sz+"px";
+    p.style.borderRadius=Math.random()>.5?"50%":"3px";
+    const dur=2.5+Math.random()*2;
+    p.style.animationDuration=dur+"s";
+    p.style.animationDelay=Math.random()*.8+"s";
+    w.appendChild(p);setTimeout(()=>p.remove(),(dur+1)*1000);
+  }
+}
+</script>
+</body>
+</html>
